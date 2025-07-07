@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "this is demo first app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Vipul Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "dot-env": "^0.0.1",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0"
+  }
+}
