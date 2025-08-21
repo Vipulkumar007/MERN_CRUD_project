@@ -14,5 +14,3 @@ app.listen(5000, () => {
     connectDB();
     console.log('Server is running on port 5000 link http://localhost:5000');
 })
-
-//ROvGUy9xbV7skm1j
