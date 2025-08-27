@@ -3,11 +3,15 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import Product from './models/product.model.js';
 
-dotenv.config()
+dotenv.config();
 const app = express();
 
 app.use(express.json()); //allows us to accept JSON data in the req.body 
 
+
+
+
+//POST request to create a product
 app.post('/api/products', async (req, res) => {
     const product = req.body; // user will send this data
 
@@ -25,6 +29,27 @@ app.post('/api/products', async (req, res) => {
         res.status(500).json({success: false,message: "server error"});
     }
 });
+
+
+
+
+
+//DELETE request to delete a product
+app.delete('/api/products/:id', async (req, res) => {
+    const {id} = req.params;
+    
+    try{
+        await Product.findByIdAndDelete(id);
+        res.status(200).json({success: true, message: "Product deleted successfully"});
+    }
+    catch(error) {
+        res.status(404).json({success: false,message: "product not found"});
+    }
+});
+
+
+
+
 
 
 app.listen(5000, () => {
